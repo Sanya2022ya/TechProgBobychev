@@ -1,0 +1,16 @@
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\calc.exe
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\calc.deps.json
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\calc.runtimeconfig.json
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\calc.runtimeconfig.dev.json
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\calc.dll
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\ref\calc.dll
+C:\Users\Александр\Desktop\calc\bin\Debug\net5.0\calc.pdb
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.csproj.AssemblyReference.cache
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.AssemblyInfoInputs.cache
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.AssemblyInfo.cs
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.csproj.CoreCompileInputs.cache
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.dll
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\ref\calc.dll
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.pdb
+C:\Users\Александр\Desktop\calc\obj\Debug\net5.0\calc.genruntimeconfig.cache
