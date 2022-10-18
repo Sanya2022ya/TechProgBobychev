@@ -1,49 +1,155 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 
-namespace calc
+
+namespace Calculator
 {
-    class Program
+    class ReversePolishNotation
     {
         static void Main(string[] args)
         {
-  char again = 'y';
-                while (again == 'y')
+            while (true)
             {
-                double total;
-                Console.WriteLine("Введите первое число");
-                var a = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Введите оператор");
-                var oper = Convert.ToChar(Console.ReadLine());
-                Console.WriteLine("Введите второе число");
-                var b = Convert.ToDouble(Console.ReadLine());
-                if (oper == '+')
-                {
-                    total = a + b;
-                    Console.WriteLine($"Сумма {a} и {b} равна {total}.");
-                }
-                    else if (oper == '-')
-                    {
-                        total = a - b;
-                        Console.WriteLine($"Разность {a} и {b} равна {total}.");
-                    }
-                        else if (oper == '*')
-                        {
-                            total = a * b;
-                            Console.WriteLine($"Произведение {a} и {b} равно {total}.");
-                        }
-                            else if (oper == '/')
-                            {
-                                total = a / b;
-                                Console.WriteLine($"Частное от деления {a} на {b} равно {total}.");
-                            }
-                                
-                    else
-                    {
-                        Console.WriteLine("Неучтённый оператор");
-                    }
-                Console.WriteLine("Хотите продолжить работу с программой? (y/n)");
-                again = Convert.ToChar(Console.ReadLine());
+                Console.Write("Введите выражение: ");
+                var userInput = Console.ReadLine();
+                var calculationResult = ReversePolishNotation.ResultPolishNotation(userInput);
+                Console.WriteLine(calculationResult);
+
             }
         }
+
+
+        static string CreationOfPolishNotation(string userInput)
+        {
+            string output = string.Empty;
+            Stack<char> operStack = new Stack<char>();
+
+            for (int i = 0; i < userInput.Length; i++)
+            {
+                if (Char.IsDigit(userInput[i]))
+                {
+                     while (!(IsDelimeter(userInput[i]) || IsOperator(userInput[i])))
+                     {
+                         output += userInput[i];
+                         i++;
+                         if (i == userInput.Length) break;
+                     }
+
+                    output += " ";
+                    i--;
+                }
+
+                else if (IsOperator(userInput[i]))
+                {
+                    switch (userInput[i])
+                    {
+                        case '(':
+                            operStack.Push(userInput[i]);
+                            break;
+                        case ')':
+                            {
+                                char symbol = operStack.Pop();
+
+                                while (symbol != '(')
+                                {
+                                    output += symbol.ToString() + ' ';
+                                    symbol = operStack.Pop();
+                                }
+                                break;
+                            }
+                        default:
+                            if (operStack.Count > 0)
+                                if (CheckOperatorPrecedence(userInput[i]) <= CheckOperatorPrecedence(operStack.Peek()))
+                                    output += operStack.Pop().ToString() + " ";
+                            operStack.Push(char.Parse(userInput[i].ToString()));
+                            break;
+                        }
+                    }
+                
+            }
+
+            while (operStack.Count > 0)
+            {
+                output += operStack.Pop() + " ";
+            }
+
+            return output;
+        }
+
+        static double ResultPolishNotation(string userInput)
+        {
+            string polishExpression = CreationOfPolishNotation(userInput);
+            Console.WriteLine("В польской нотации: " + polishExpression);
+            double result = CalculationResult(polishExpression);
+            return result;
+        }
+        
+        static bool IsDelimeter(char symbol)
+        {
+            switch (symbol)
+            {
+                case ' ':
+                case '=':
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        static bool IsOperator(char symbol)
+        {
+            return CheckOperatorPrecedence(symbol) < MAX_PRIORITY;
+        }
+
+        const int MAX_PRIORITY = 10;
+        static byte CheckOperatorPrecedence(char symbol) => symbol switch
+        {
+            '(' => 0,
+            ')' => 1,
+            '+' => 2,
+            '-' => 2,
+            '*' => 3,
+            '/' => 3,
+            _ => MAX_PRIORITY,
+        };
+        static private double CalculationResult(string input)
+        {
+            double total = 0; 
+            Stack<double> stack = new Stack<double>(); 
+
+            for (int symbol = 0; symbol < input.Length; symbol++)
+            {
+                if (IsOperator(input[symbol])) 
+                {  
+                    double a = stack.Pop();
+                    double b = stack.Pop();
+
+                    switch (input[symbol]) 
+                    {
+                        case '+': total = b + a; break;
+                        case '-': total = b - a; break;
+                        case '*': total = b * a; break;
+                        case '/': total = b / a; break;
+                    }
+                    stack.Push(total); 
+                }
+                
+                else if (Char.IsDigit(input[symbol]))
+                {
+                    string output = string.Empty;
+
+                    while (!(IsDelimeter(input[symbol]) || IsOperator(input[symbol])))
+                    {
+                        output += input[symbol];
+                        symbol++;
+                        if (symbol == input.Length) break;
+                    }
+                    stack.Push(double.Parse(output)); 
+                    symbol--;
+                }
+            }
+            return stack.Peek(); 
+        }
+       
     }
 }
