@@ -26,3 +26,7 @@
 <h2 align="center">BPMN модель</h2>
 
 <span align="center">![практика3](https://user-images.githubusercontent.com/104728555/196425481-63ff3a72-542d-4172-b168-d382f48086fb.png)</span>
+
+<h2 align="center">ED1F модель</h2>
+
+<span align="center">![практика 2 3](https://user-images.githubusercontent.com/104728555/197544440-38b28267-b024-49f9-8b93-63bed6021c6b.png)</span>
