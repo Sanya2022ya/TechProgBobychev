@@ -27,6 +27,11 @@
 
 <span align="center">![практика3](https://user-images.githubusercontent.com/104728555/196425481-63ff3a72-542d-4172-b168-d382f48086fb.png)</span>
 
-<h2 align="center">ED1F модель</h2>
+<h2 align="center">IDEF модель</h2>
 
 <span align="center">![практика 2 3](https://user-images.githubusercontent.com/104728555/197544440-38b28267-b024-49f9-8b93-63bed6021c6b.png)</span>
+
+<h2 align="center">Use case модель</h2>
+
+<span align="center">![юз кейс](https://user-images.githubusercontent.com/104728555/198043745-4d3811df-7856-496f-9238-8cff77f3d354.png)</span>
+
