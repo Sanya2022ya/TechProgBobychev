@@ -33,5 +33,4 @@
 
 <h2 align="center">Use case модель</h2>
 
-<span align="center">![юз кейс](https://user-images.githubusercontent.com/104728555/198043745-4d3811df-7856-496f-9238-8cff77f3d354.png)</span>
-
+<span align="center">![юз кейс](https://user-images.githubusercontent.com/104728555/198107663-f782dbe5-8927-42df-a330-0a8e240d6139.png)</span>
